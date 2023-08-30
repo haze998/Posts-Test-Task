@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class HomeCoordinator: Coordinator, HomeCoordinatorDelegate {
+final class HomeCoordinator: Coordinator {
     
     weak var parentCoordinator: Coordinator?
     var childrenCoordinator: [Coordinator] = []
@@ -27,4 +27,8 @@ final class HomeCoordinator: Coordinator, HomeCoordinatorDelegate {
         let viewController = HomeViewController(viewModel: viewModel)
         self.navigationController.pushViewController(viewController, animated: true)
     }
+}
+
+extension HomeCoordinator: HomeCoordinatorDelegate {
+
 }
