@@ -25,6 +25,7 @@ final class HomeCoordinator: Coordinator {
         let viewModel = HomeViewModel()
         viewModel.coordinator = self
         let viewController = HomeViewController(viewModel: viewModel)
+        viewController.navigationItem.title = "Posts"
         self.navigationController.pushViewController(viewController, animated: true)
     }
 }

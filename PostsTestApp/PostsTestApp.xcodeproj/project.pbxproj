@@ -20,6 +20,14 @@
 		06A46C3D2A9F5C6B00DB7B9F /* SFProText-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 06A46C3C2A9F5C6B00DB7B9F /* SFProText-Bold.ttf */; };
 		06A46C3F2A9F5C8000DB7B9F /* SFProText-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 06A46C3E2A9F5C8000DB7B9F /* SFProText-Regular.ttf */; };
 		06A46C412A9F5C8F00DB7B9F /* SFProText-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 06A46C402A9F5C8F00DB7B9F /* SFProText-Light.ttf */; };
+		06A46C432A9F5D4D00DB7B9F /* PostsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A46C422A9F5D4D00DB7B9F /* PostsModel.swift */; };
+		06A46C452A9F5D7A00DB7B9F /* PostInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A46C442A9F5D7A00DB7B9F /* PostInfoModel.swift */; };
+		06A46C492A9F5E1600DB7B9F /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A46C482A9F5E1600DB7B9F /* NetworkManager.swift */; };
+		06A46C4B2A9F5E7C00DB7B9F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A46C4A2A9F5E7C00DB7B9F /* Constants.swift */; };
+		06A46C4E2A9F694400DB7B9F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 06A46C4D2A9F694400DB7B9F /* SnapKit */; };
+		06A46C532A9F702600DB7B9F /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A46C522A9F702600DB7B9F /* HomeTableViewCell.swift */; };
+		06A46C562A9F719200DB7B9F /* Extension + UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A46C552A9F719200DB7B9F /* Extension + UIView.swift */; };
+		06A46C582A9F82BC00DB7B9F /* Extension + Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A46C572A9F82BC00DB7B9F /* Extension + Double.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +46,13 @@
 		06A46C3C2A9F5C6B00DB7B9F /* SFProText-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-Bold.ttf"; sourceTree = "<group>"; };
 		06A46C3E2A9F5C8000DB7B9F /* SFProText-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-Regular.ttf"; sourceTree = "<group>"; };
 		06A46C402A9F5C8F00DB7B9F /* SFProText-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-Light.ttf"; sourceTree = "<group>"; };
+		06A46C422A9F5D4D00DB7B9F /* PostsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsModel.swift; sourceTree = "<group>"; };
+		06A46C442A9F5D7A00DB7B9F /* PostInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostInfoModel.swift; sourceTree = "<group>"; };
+		06A46C482A9F5E1600DB7B9F /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		06A46C4A2A9F5E7C00DB7B9F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		06A46C522A9F702600DB7B9F /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
+		06A46C552A9F719200DB7B9F /* Extension + UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIView.swift"; sourceTree = "<group>"; };
+		06A46C572A9F82BC00DB7B9F /* Extension + Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Double.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06A46C4E2A9F694400DB7B9F /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,10 +87,11 @@
 			isa = PBXGroup;
 			children = (
 				06A46C372A9F5AE800DB7B9F /* HomeScene */,
-				06A46C332A9F5AA900DB7B9F /* Resources */,
-				06A46C322A9F5A8600DB7B9F /* App */,
+				06A46C472A9F5DFE00DB7B9F /* NetworkManager */,
 				06A46C2B2A9F55E600DB7B9F /* Coordinator */,
-				06A46C262A9F556E00DB7B9F /* Protocol */,
+				06A46C322A9F5A8600DB7B9F /* App */,
+				06A46C542A9F717700DB7B9F /* Extensions */,
+				06A46C332A9F5AA900DB7B9F /* Resources */,
 				06A46C202A9F521C00DB7B9F /* Info.plist */,
 			);
 			path = PostsTestApp;
@@ -92,7 +109,8 @@
 		06A46C2B2A9F55E600DB7B9F /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
-				06A46C2C2A9F560100DB7B9F /* AppCoordinator.swift */,
+				06A46C462A9F5DC300DB7B9F /* AppCoordinator */,
+				06A46C262A9F556E00DB7B9F /* Protocol */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -112,6 +130,7 @@
 				06A46C3B2A9F5C4E00DB7B9F /* Fonts */,
 				06A46C1B2A9F521C00DB7B9F /* Assets.xcassets */,
 				06A46C1D2A9F521C00DB7B9F /* LaunchScreen.storyboard */,
+				06A46C4A2A9F5E7C00DB7B9F /* Constants.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -119,6 +138,8 @@
 		06A46C342A9F5ACE00DB7B9F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				06A46C422A9F5D4D00DB7B9F /* PostsModel.swift */,
+				06A46C442A9F5D7A00DB7B9F /* PostInfoModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -155,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				06A46C162A9F521B00DB7B9F /* HomeViewController.swift */,
+				06A46C4F2A9F6FF000DB7B9F /* CustomView */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -184,6 +206,39 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		06A46C462A9F5DC300DB7B9F /* AppCoordinator */ = {
+			isa = PBXGroup;
+			children = (
+				06A46C2C2A9F560100DB7B9F /* AppCoordinator.swift */,
+			);
+			path = AppCoordinator;
+			sourceTree = "<group>";
+		};
+		06A46C472A9F5DFE00DB7B9F /* NetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+				06A46C482A9F5E1600DB7B9F /* NetworkManager.swift */,
+			);
+			path = NetworkManager;
+			sourceTree = "<group>";
+		};
+		06A46C4F2A9F6FF000DB7B9F /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				06A46C522A9F702600DB7B9F /* HomeTableViewCell.swift */,
+			);
+			path = CustomView;
+			sourceTree = "<group>";
+		};
+		06A46C542A9F717700DB7B9F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				06A46C552A9F719200DB7B9F /* Extension + UIView.swift */,
+				06A46C572A9F82BC00DB7B9F /* Extension + Double.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -200,6 +255,9 @@
 			dependencies = (
 			);
 			name = PostsTestApp;
+			packageProductDependencies = (
+				06A46C4D2A9F694400DB7B9F /* SnapKit */,
+			);
 			productName = PostsTestApp;
 			productReference = 06A46C0F2A9F521A00DB7B9F /* PostsTestApp.app */;
 			productType = "com.apple.product-type.application";
@@ -228,6 +286,9 @@
 				Base,
 			);
 			mainGroup = 06A46C062A9F521A00DB7B9F;
+			packageReferences = (
+				06A46C4C2A9F694400DB7B9F /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 06A46C102A9F521A00DB7B9F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -258,13 +319,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				06A46C2D2A9F560100DB7B9F /* AppCoordinator.swift in Sources */,
+				06A46C452A9F5D7A00DB7B9F /* PostInfoModel.swift in Sources */,
+				06A46C532A9F702600DB7B9F /* HomeTableViewCell.swift in Sources */,
 				06A46C282A9F557A00DB7B9F /* Coordinator.swift in Sources */,
+				06A46C432A9F5D4D00DB7B9F /* PostsModel.swift in Sources */,
+				06A46C582A9F82BC00DB7B9F /* Extension + Double.swift in Sources */,
+				06A46C492A9F5E1600DB7B9F /* NetworkManager.swift in Sources */,
+				06A46C562A9F719200DB7B9F /* Extension + UIView.swift in Sources */,
 				06A46C172A9F521B00DB7B9F /* HomeViewController.swift in Sources */,
 				06A46C312A9F56CC00DB7B9F /* HomeViewModel.swift in Sources */,
 				06A46C132A9F521A00DB7B9F /* AppDelegate.swift in Sources */,
 				06A46C2A2A9F55C100DB7B9F /* AppCoordinatorProtocol.swift in Sources */,
 				06A46C2F2A9F567A00DB7B9F /* HomeCoordinator.swift in Sources */,
 				06A46C152A9F521B00DB7B9F /* SceneDelegate.swift in Sources */,
+				06A46C4B2A9F5E7C00DB7B9F /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -472,6 +540,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		06A46C4C2A9F694400DB7B9F /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		06A46C4D2A9F694400DB7B9F /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 06A46C4C2A9F694400DB7B9F /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 06A46C072A9F521A00DB7B9F /* Project object */;
 }
