@@ -48,13 +48,58 @@ class HomeViewController: UIViewController {
     // MARK: - Private func
     private func setupUI() {
         self.view.backgroundColor = .white
+        
+        let sortImage = UIImage(named: ImageNames.settings.rawValue)
+        let sortButton = UIBarButtonItem(
+            image: sortImage,
+            style: .plain,
+            target: self,
+            action: #selector(showSortOptions))
+        self.navigationItem.rightBarButtonItem = sortButton
     }
     
     private func loadPosts() {
         viewModel.fetchPosts {
+            switch self.viewModel.currentSortOption {
+            case .byTimestamp:
+                self.viewModel.postsArr.sort(by: { $0.timeshamp ?? 0 > $1.timeshamp ?? 0 })
+            case .byLikesCount:
+                self.viewModel.postsArr.sort(by: { $0.likesCount ?? 0 > $1.likesCount ?? 0 })
+            }
+            
+            if self.viewModel.currentSortDirection == .ascending {
+                self.viewModel.postsArr.reverse()
+            }
+            
             self.tableView.reloadData()
         }
     }
+    
+    // MARK: - Selectors
+    @objc
+    private func showSortOptions() {
+        let alertController = UIAlertController(title: "Sort Options", message: "Choose a sorting option", preferredStyle: .actionSheet)
+        
+        alertController.addAction(UIAlertAction(title: "By Timestamp", style: .default) { _ in
+            self.viewModel.currentSortOption = .byTimestamp
+            self.loadPosts()
+        })
+        
+        alertController.addAction(UIAlertAction(title: "By Likes Count", style: .default) { _ in
+            self.viewModel.currentSortOption = .byLikesCount
+            self.loadPosts()
+        })
+        
+        alertController.addAction(UIAlertAction(title: "Change Sort Direction", style: .default) { _ in
+            self.viewModel.currentSortDirection = self.viewModel.currentSortDirection == .ascending ? .descending : .ascending
+            self.loadPosts()
+        })
+        
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: nil))
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
+
     
     // MARK: - Setup layout
     private func setupConstraints() {

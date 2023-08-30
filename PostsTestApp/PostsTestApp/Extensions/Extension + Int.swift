@@ -1,5 +1,5 @@
 //
-//  Extension + Double.swift
+//  Extension + Int.swift
 //  PostsTestApp
 //
 //  Created by Evgeniy Docenko on 30.08.2023.

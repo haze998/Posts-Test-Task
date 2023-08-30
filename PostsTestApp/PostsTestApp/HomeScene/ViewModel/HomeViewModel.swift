@@ -14,8 +14,9 @@ protocol HomeCoordinatorDelegate: AnyObject {
 class HomeViewModel {
     
     weak var coordinator: HomeCoordinatorDelegate?
-    
-    private(set) var postsArr: [PostInfo] = []
+    var postsArr: [PostInfo] = []
+    var currentSortOption: SortOption = .byTimestamp
+    var currentSortDirection: SortDirection = .descending
     
     func fetchPosts(completion: @escaping() -> Void) {
         NetworkManager.shared.getPosts { [weak self] result in

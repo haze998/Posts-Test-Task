@@ -27,7 +27,7 @@
 		06A46C4E2A9F694400DB7B9F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 06A46C4D2A9F694400DB7B9F /* SnapKit */; };
 		06A46C532A9F702600DB7B9F /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A46C522A9F702600DB7B9F /* HomeTableViewCell.swift */; };
 		06A46C562A9F719200DB7B9F /* Extension + UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A46C552A9F719200DB7B9F /* Extension + UIView.swift */; };
-		06A46C582A9F82BC00DB7B9F /* Extension + Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A46C572A9F82BC00DB7B9F /* Extension + Double.swift */; };
+		06A46C582A9F82BC00DB7B9F /* Extension + Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A46C572A9F82BC00DB7B9F /* Extension + Int.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,7 +52,7 @@
 		06A46C4A2A9F5E7C00DB7B9F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		06A46C522A9F702600DB7B9F /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		06A46C552A9F719200DB7B9F /* Extension + UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIView.swift"; sourceTree = "<group>"; };
-		06A46C572A9F82BC00DB7B9F /* Extension + Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Double.swift"; sourceTree = "<group>"; };
+		06A46C572A9F82BC00DB7B9F /* Extension + Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Int.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,10 +127,10 @@
 		06A46C332A9F5AA900DB7B9F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				06A46C4A2A9F5E7C00DB7B9F /* Constants.swift */,
 				06A46C3B2A9F5C4E00DB7B9F /* Fonts */,
 				06A46C1B2A9F521C00DB7B9F /* Assets.xcassets */,
 				06A46C1D2A9F521C00DB7B9F /* LaunchScreen.storyboard */,
-				06A46C4A2A9F5E7C00DB7B9F /* Constants.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -234,7 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				06A46C552A9F719200DB7B9F /* Extension + UIView.swift */,
-				06A46C572A9F82BC00DB7B9F /* Extension + Double.swift */,
+				06A46C572A9F82BC00DB7B9F /* Extension + Int.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -323,7 +323,7 @@
 				06A46C532A9F702600DB7B9F /* HomeTableViewCell.swift in Sources */,
 				06A46C282A9F557A00DB7B9F /* Coordinator.swift in Sources */,
 				06A46C432A9F5D4D00DB7B9F /* PostsModel.swift in Sources */,
-				06A46C582A9F82BC00DB7B9F /* Extension + Double.swift in Sources */,
+				06A46C582A9F82BC00DB7B9F /* Extension + Int.swift in Sources */,
 				06A46C492A9F5E1600DB7B9F /* NetworkManager.swift in Sources */,
 				06A46C562A9F719200DB7B9F /* Extension + UIView.swift in Sources */,
 				06A46C172A9F521B00DB7B9F /* HomeViewController.swift in Sources */,
