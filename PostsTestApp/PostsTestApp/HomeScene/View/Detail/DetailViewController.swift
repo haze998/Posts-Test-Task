@@ -86,6 +86,14 @@ class DetailViewController: UIViewController {
         configurePost()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        // scroll view height depending on content
+        scrollView.contentSize = CGSize(width: scrollView.frame.size.width, height: likeCounter.frame.maxY)
+    }
+
+    
     override func viewWillLayoutSubviews() {
         setupLayout()
     }
@@ -119,11 +127,10 @@ class DetailViewController: UIViewController {
         }
         
         contentView.snp.makeConstraints { make in
-            make.top.equalTo(scrollView).offset(-100)
+            make.top.equalTo(scrollView)
             make.bottom.equalTo(scrollView)
-            make.left.right.equalTo(view)
+            make.left.right.equalTo(scrollView)
             make.width.equalTo(scrollView)
-            make.height.equalTo(1380)
             scrollView.isScrollEnabled = true
         }
         
