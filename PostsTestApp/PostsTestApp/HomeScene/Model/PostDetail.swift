@@ -13,8 +13,7 @@ struct DetailPost: Decodable {
 
 struct DetailPostInfo: Decodable {
     let postId: Int
-//    let timeshamp: TimeInterval
-    let timeshamp: Int
+    let timeshamp: TimeInterval
     let title, text: String
     let postImage: String
     let likesCount: Int

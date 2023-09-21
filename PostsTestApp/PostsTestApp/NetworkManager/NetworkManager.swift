@@ -39,8 +39,6 @@ class NetworkManager {
     func getDetaiPost(id: String, completion: @escaping(DetailPostInfo) -> Void) {
         guard let apiUrl = URL(string: ConstURL.detailPostURL.rawValue + "\(id)" + ConstURL.json.rawValue) else { fatalError("Invalid URL")
         }
-        print(apiUrl)
-        
         
         let session = URLSession(configuration: .default)
         let task = session.dataTask(with: apiUrl) { data, response, error in

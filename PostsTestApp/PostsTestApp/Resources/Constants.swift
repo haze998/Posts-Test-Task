@@ -7,13 +7,15 @@
 
 import Foundation
 
- // "https://raw.githubusercontent.com/anton-natife/jsons/master/api/posts/[id].json"
-
 // MARK: - API'S URL
 enum ConstURL: String {
     case postsURL = "https://raw.githubusercontent.com/anton-natife/jsons/master/api/main.json"
     case detailPostURL = "https://raw.githubusercontent.com/anton-natife/jsons/master/api/posts/"
     case json = ".json"
+}
+
+enum ConstNames: String {
+    case daysAgo = "days ago"
 }
 
 // MARK: - Custom Font
@@ -26,6 +28,7 @@ enum FontNames: String {
 // MARK: - Image Const
 enum ImageNames: String {
     case settings = "settings"
+    case heart = "heart.fill"
 }
 
 // MARK: - Sorting enum const

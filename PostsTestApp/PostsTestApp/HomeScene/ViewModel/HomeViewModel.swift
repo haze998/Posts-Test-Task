@@ -28,6 +28,5 @@ class HomeViewModel {
     
     func openDetailViewController(_ post: PostInfo) {
         coordinator?.openDetailViewController(post)
-        print(post)
     }
 }

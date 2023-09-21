@@ -47,6 +47,7 @@ class HomeViewController: UIViewController {
     
     // MARK: - Private func
     private func setupUI() {
+        self.navigationController?.navigationBar.tintColor = UIColor.red
         self.view.backgroundColor = .white
         
         let sortImage = UIImage(named: ImageNames.settings.rawValue)
@@ -90,10 +91,10 @@ class HomeViewController: UIViewController {
             self.loadPosts()
         })
         
-//        alertController.addAction(UIAlertAction(title: "Change Sort Direction", style: .default) { _ in
-//            self.viewModel.currentSortDirection = self.viewModel.currentSortDirection == .ascending ? .descending : .ascending
-//            self.loadPosts()
-//        })
+        alertController.addAction(UIAlertAction(title: "Change Sort Direction", style: .default) { _ in
+            self.viewModel.currentSortDirection = self.viewModel.currentSortDirection == .ascending ? .descending : .ascending
+            self.loadPosts()
+        })
         
         alertController.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: nil))
         

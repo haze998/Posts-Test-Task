@@ -26,7 +26,7 @@
 		06A46C4E2A9F694400DB7B9F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 06A46C4D2A9F694400DB7B9F /* SnapKit */; };
 		06A46C532A9F702600DB7B9F /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A46C522A9F702600DB7B9F /* HomeTableViewCell.swift */; };
 		06A46C562A9F719200DB7B9F /* Extension + UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A46C552A9F719200DB7B9F /* Extension + UIView.swift */; };
-		06A46C582A9F82BC00DB7B9F /* Extension + Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A46C572A9F82BC00DB7B9F /* Extension + Int.swift */; };
+		06A46C582A9F82BC00DB7B9F /* Extension + TimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A46C572A9F82BC00DB7B9F /* Extension + TimeInterval.swift */; };
 		06BECBBF2ABCA355000EA7AC /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BECBBE2ABCA355000EA7AC /* DetailViewController.swift */; };
 		06BECBC12ABCA711000EA7AC /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BECBC02ABCA711000EA7AC /* DetailViewModel.swift */; };
 		06BECBC32ABCA853000EA7AC /* PostDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BECBC22ABCA853000EA7AC /* PostDetail.swift */; };
@@ -54,7 +54,7 @@
 		06A46C4A2A9F5E7C00DB7B9F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		06A46C522A9F702600DB7B9F /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		06A46C552A9F719200DB7B9F /* Extension + UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIView.swift"; sourceTree = "<group>"; };
-		06A46C572A9F82BC00DB7B9F /* Extension + Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Int.swift"; sourceTree = "<group>"; };
+		06A46C572A9F82BC00DB7B9F /* Extension + TimeInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + TimeInterval.swift"; sourceTree = "<group>"; };
 		06BECBBE2ABCA355000EA7AC /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		06BECBC02ABCA711000EA7AC /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		06BECBC22ABCA853000EA7AC /* PostDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetail.swift; sourceTree = "<group>"; };
@@ -234,7 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				06A46C552A9F719200DB7B9F /* Extension + UIView.swift */,
-				06A46C572A9F82BC00DB7B9F /* Extension + Int.swift */,
+				06A46C572A9F82BC00DB7B9F /* Extension + TimeInterval.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -333,7 +333,7 @@
 				06A46C532A9F702600DB7B9F /* HomeTableViewCell.swift in Sources */,
 				06A46C282A9F557A00DB7B9F /* Coordinator.swift in Sources */,
 				06A46C432A9F5D4D00DB7B9F /* PostsModel.swift in Sources */,
-				06A46C582A9F82BC00DB7B9F /* Extension + Int.swift in Sources */,
+				06A46C582A9F82BC00DB7B9F /* Extension + TimeInterval.swift in Sources */,
 				06A46C492A9F5E1600DB7B9F /* NetworkManager.swift in Sources */,
 				06BECBBF2ABCA355000EA7AC /* DetailViewController.swift in Sources */,
 				06A46C562A9F719200DB7B9F /* Extension + UIView.swift in Sources */,

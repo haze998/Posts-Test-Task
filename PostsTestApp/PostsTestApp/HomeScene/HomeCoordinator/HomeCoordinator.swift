@@ -25,7 +25,9 @@ final class HomeCoordinator: Coordinator {
         let viewModel = HomeViewModel()
         viewModel.coordinator = self
         let viewController = HomeViewController(viewModel: viewModel)
+        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.red]
         viewController.navigationItem.title = "Posts"
+        navigationController.navigationBar.titleTextAttributes = textAttributes
         self.navigationController.pushViewController(viewController, animated: true)
     }
 }
