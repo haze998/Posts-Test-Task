@@ -14,6 +14,7 @@ enum ConstURL: String {
     case json = ".json"
 }
 
+// MARK: - Custom Names
 enum ConstNames: String {
     case daysAgo = "days ago"
 }
@@ -37,6 +38,7 @@ enum SortOption {
     case byLikesCount
 }
 
+// MARK: - Sort Direction
 enum SortDirection {
     case ascending
     case descending

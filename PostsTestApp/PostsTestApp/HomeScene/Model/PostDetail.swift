@@ -7,10 +7,12 @@
 
 import Foundation
 
+// MARK: - DetaiPost
 struct DetailPost: Decodable {
     let post: DetailPostInfo
 }
 
+// MARK: - DetailPostInfo
 struct DetailPostInfo: Decodable {
     let postId: Int
     let timeshamp: TimeInterval

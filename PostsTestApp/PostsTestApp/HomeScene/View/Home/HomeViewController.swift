@@ -33,7 +33,7 @@ class HomeViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +45,7 @@ class HomeViewController: UIViewController {
         setupConstraints()
     }
     
-    // MARK: - Private func
+    // MARK: - Private funcs
     private func setupUI() {
         self.navigationController?.navigationBar.tintColor = UIColor.red
         self.view.backgroundColor = .white
@@ -100,7 +100,7 @@ class HomeViewController: UIViewController {
         
         self.present(alertController, animated: true, completion: nil)
     }
-
+    
     
     // MARK: - Setup layout
     private func setupConstraints() {
@@ -123,21 +123,21 @@ extension HomeViewController: UITableViewDataSource {
         cell.configure(with: viewModel.postsArr[indexPath.row]!)
         
         cell.buttonTapСlosure = { [weak self] in
-          guard let self = self else { return }
-          if self.expandedIndex.contains(indexPath.row) {
-            self.expandedIndex.remove(indexPath.row)
-          } else {
-            self.expandedIndex.insert(indexPath.row)
-          }
-          tableView.reloadRows(at: [indexPath], with: .automatic)
+            guard let self = self else { return }
+            if self.expandedIndex.contains(indexPath.row) {
+                self.expandedIndex.remove(indexPath.row)
+            } else {
+                self.expandedIndex.insert(indexPath.row)
+            }
+            tableView.reloadRows(at: [indexPath], with: .automatic)
         }
         
         //  Cell configuration (Expand/Collapse)
         if expandedIndex.contains(indexPath.row) {
-          cell.previewLabel.numberOfLines = 0
+            cell.previewLabel.numberOfLines = 0
             cell.configureButton(with: "Collapse")
         } else {
-          cell.previewLabel.numberOfLines = 2
+            cell.previewLabel.numberOfLines = 2
             cell.configureButton(with: "Expand")
         }
         

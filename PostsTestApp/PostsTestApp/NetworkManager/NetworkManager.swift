@@ -14,7 +14,7 @@ class NetworkManager {
     private init() { }
     
     // MARK: - Get Posts
-    func getPosts(completion: @escaping([PostInfo]) -> Void) {
+    func getPosts(completion: @escaping(Result<[PostInfo], Error>) -> Void) {
         guard let apiUrl = URL(string: ConstURL.postsURL.rawValue) else { fatalError("Invalid URL")
         }
         
@@ -26,17 +26,17 @@ class NetworkManager {
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
                 let response = try decoder.decode(Posts.self, from: data)
                 DispatchQueue.main.async {
-                    completion(response.posts ?? [])
+                    completion(.success(response.posts ?? []))
                 }
             } catch {
-                print("Error \(error.localizedDescription)")
+                completion(.failure(error))
             }
         }
         task.resume()
     }
     
     // MARK: - Get Detail Post
-    func getDetaiPost(id: String, completion: @escaping(DetailPostInfo) -> Void) {
+    func getDetaiPost(id: String, completion: @escaping(Result<DetailPostInfo, Error>) -> Void) {
         guard let apiUrl = URL(string: ConstURL.detailPostURL.rawValue + "\(id)" + ConstURL.json.rawValue) else { fatalError("Invalid URL")
         }
         
@@ -48,10 +48,10 @@ class NetworkManager {
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
                 let response = try decoder.decode(DetailPost.self, from: data)
                 DispatchQueue.main.async {
-                    completion(response.post)
+                    completion(.success(response.post))
                 }
             } catch {
-                print("Error \(error.localizedDescription)")
+                completion(.failure(error))
             }
         }
         task.resume()

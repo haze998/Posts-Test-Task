@@ -78,7 +78,7 @@ class DetailViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -92,7 +92,7 @@ class DetailViewController: UIViewController {
         // scroll view height depending on content
         scrollView.contentSize = CGSize(width: scrollView.frame.size.width, height: likeCounter.frame.maxY)
     }
-
+    
     
     override func viewWillLayoutSubviews() {
         setupLayout()

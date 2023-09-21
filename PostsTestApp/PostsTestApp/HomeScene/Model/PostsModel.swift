@@ -12,7 +12,7 @@ struct Posts: Codable {
     let posts: [PostInfo]?
 }
 
-// MARK: - Post info
+// MARK: - PostInfo
 struct PostInfo: Codable {
     let postId: Int?
     let timeshamp: TimeInterval
