@@ -124,79 +124,47 @@ class HomeTableViewCell: UITableViewCell {
     
     //MARK: - Setup Layout
     func setupConstraints() {
-            addSubview(postView)
-            postView.snp.makeConstraints { make in
-                make.top.equalToSuperview()
-                make.leading.equalToSuperview().offset(8)
-                make.trailing.equalToSuperview().offset(-8)
-                make.bottom.equalToSuperview().offset(-12)
-            }
-            
-            postView.addSubviews(view: [newsTitleLabel, previewLabel, likesStackView, dateLabel, expandButton])
-            
-            newsTitleLabel.snp.makeConstraints { make in
-                make.top.equalTo(postView.snp.top).offset(8)
-                make.leading.equalTo(postView.snp.leading).offset(15)
-                make.trailing.equalTo(postView.snp.trailing).offset(-10)
-                make.height.equalTo(70)
-            }
-            
-            previewLabel.snp.makeConstraints { make in
-                make.top.equalTo(newsTitleLabel.snp.bottom)
-                make.leading.equalTo(postView.snp.leading).offset(15)
-                make.trailing.equalTo(postView.snp.trailing).offset(-20)
-            }
-            
-            likesStackView.snp.makeConstraints { make in
-                make.top.equalTo(previewLabel.snp.bottom).offset(10)
-                make.leading.equalTo(postView.snp.leading).offset(10)
-                make.height.equalTo(20)
-            }
-            
-            dateLabel.snp.makeConstraints { make in
-                make.top.equalTo(previewLabel.snp.bottom).offset(10)
-                make.trailing.equalTo(postView.snp.trailing).offset(-10)
-                make.height.equalTo(20)
-            }
-            
-            expandButton.snp.makeConstraints { make in
-                make.top.equalTo(likesStackView.snp.bottom).offset(10)
-                make.leading.equalTo(postView.snp.leading)
-                make.trailing.equalTo(postView.snp.trailing)
-                make.bottom.equalTo(postView.snp.bottom)
-                make.height.equalTo(50)
-            }
+        addSubview(postView)
+        postView.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.leading.equalToSuperview().offset(8)
+            make.trailing.equalToSuperview().offset(-8)
+            make.bottom.equalToSuperview().offset(-12)
         }
-//    func setupConstraints() {
-//        addSubview(postView)
-//        postView.addSubviews(view: [newsTitleLabel, previewLabel, likesStackView, dateLabel, expandButton])
-//
-//        postView.topAnchor.constraint(equalTo: topAnchor, constant: 0).isActive = true
-//        postView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8).isActive = true
-//        postView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8).isActive = true
-//        postView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -12).isActive = true
-//
-//        newsTitleLabel.topAnchor.constraint(equalTo: postView.topAnchor, constant: 8).isActive = true
-//        newsTitleLabel.leadingAnchor.constraint(equalTo: postView.leadingAnchor, constant: 15).isActive = true
-//        newsTitleLabel.trailingAnchor.constraint(equalTo: postView.trailingAnchor, constant: -10).isActive = true
-//        newsTitleLabel.heightAnchor.constraint(equalToConstant: 70).isActive = true
-//
-//        previewLabel.topAnchor.constraint(equalTo: newsTitleLabel.bottomAnchor).isActive = true
-//        previewLabel.leadingAnchor.constraint(equalTo: postView.leadingAnchor, constant: 15).isActive = true
-//        previewLabel.trailingAnchor.constraint(equalTo: postView.trailingAnchor, constant: -20).isActive = true
-//
-//        likesStackView.topAnchor.constraint(equalTo: previewLabel.bottomAnchor, constant: 10).isActive = true
-//        likesStackView.leadingAnchor.constraint(equalTo: postView.leadingAnchor, constant: 10).isActive = true
-//        likesStackView.heightAnchor.constraint(equalToConstant: 20).isActive = true
-//
-//        dateLabel.topAnchor.constraint(equalTo: previewLabel.bottomAnchor, constant: 10).isActive = true
-//        dateLabel.trailingAnchor.constraint(equalTo: postView.trailingAnchor, constant: -10).isActive = true
-//        dateLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
-//
-//        expandButton.topAnchor.constraint(equalTo: likesStackView.bottomAnchor, constant: 10).isActive = true
-//        expandButton.leadingAnchor.constraint(equalTo: postView.leadingAnchor, constant: 0).isActive = true
-//        expandButton.trailingAnchor.constraint(equalTo: postView.trailingAnchor, constant: 0).isActive = true
-//        expandButton.bottomAnchor.constraint(equalTo: postView.bottomAnchor, constant: 0).isActive = true
-//        expandButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-//    }
+        
+        postView.addSubviews(view: [newsTitleLabel, previewLabel, likesStackView, dateLabel, expandButton])
+        
+        newsTitleLabel.snp.makeConstraints { make in
+            make.top.equalTo(postView.snp.top).offset(8)
+            make.leading.equalTo(postView.snp.leading).offset(15)
+            make.trailing.equalTo(postView.snp.trailing).offset(-10)
+            make.height.equalTo(70)
+        }
+        
+        previewLabel.snp.makeConstraints { make in
+            make.top.equalTo(newsTitleLabel.snp.bottom)
+            make.leading.equalTo(postView.snp.leading).offset(15)
+            make.trailing.equalTo(postView.snp.trailing).offset(-20)
+        }
+        
+        likesStackView.snp.makeConstraints { make in
+            make.top.equalTo(previewLabel.snp.bottom).offset(10)
+            make.leading.equalTo(postView.snp.leading).offset(10)
+            make.height.equalTo(20)
+        }
+        
+        dateLabel.snp.makeConstraints { make in
+            make.top.equalTo(previewLabel.snp.bottom).offset(10)
+            make.trailing.equalTo(postView.snp.trailing).offset(-10)
+            make.height.equalTo(20)
+        }
+        
+        expandButton.snp.makeConstraints { make in
+            make.top.equalTo(likesStackView.snp.bottom).offset(10)
+            make.leading.equalTo(postView.snp.leading)
+            make.trailing.equalTo(postView.snp.trailing)
+            make.bottom.equalTo(postView.snp.bottom)
+            make.height.equalTo(50)
+        }
+    }
 }
