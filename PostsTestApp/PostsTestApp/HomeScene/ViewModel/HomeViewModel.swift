@@ -8,13 +8,13 @@
 import Foundation
 
 protocol HomeCoordinatorDelegate: AnyObject {
-    
+    func openDetailViewController(_ post: PostInfo)
 }
 
 class HomeViewModel {
     
     weak var coordinator: HomeCoordinatorDelegate?
-    var postsArr: [PostInfo] = []
+    var postsArr: [PostInfo?] = []
     var currentSortOption: SortOption = .byTimestamp
     var currentSortDirection: SortDirection = .descending
     
@@ -24,5 +24,10 @@ class HomeViewModel {
             self.postsArr = result
             completion()
         }
+    }
+    
+    func openDetailViewController(_ post: PostInfo) {
+        coordinator?.openDetailViewController(post)
+        print(post)
     }
 }

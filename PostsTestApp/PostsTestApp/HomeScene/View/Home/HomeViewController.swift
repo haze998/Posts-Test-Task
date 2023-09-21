@@ -12,12 +12,12 @@ class HomeViewController: UIViewController {
     
     // MARK: - Properties
     var viewModel: HomeViewModel
+    private var expandedIndex : IndexSet = []
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.rowHeight = 250
         tableView.backgroundColor = .clear
         tableView.showsVerticalScrollIndicator = false
         tableView.register(HomeTableViewCell.self, forCellReuseIdentifier: String(describing: HomeTableViewCell.self))
@@ -62,9 +62,9 @@ class HomeViewController: UIViewController {
         viewModel.fetchPosts {
             switch self.viewModel.currentSortOption {
             case .byTimestamp:
-                self.viewModel.postsArr.sort(by: { $0.timeshamp ?? 0 > $1.timeshamp ?? 0 })
+                self.viewModel.postsArr.sort(by: { $0?.timeshamp ?? 0 > $1?.timeshamp ?? 0 })
             case .byLikesCount:
-                self.viewModel.postsArr.sort(by: { $0.likesCount ?? 0 > $1.likesCount ?? 0 })
+                self.viewModel.postsArr.sort(by: { $0?.likesCount ?? 0 > $1?.likesCount ?? 0 })
             }
             
             if self.viewModel.currentSortDirection == .ascending {
@@ -90,10 +90,10 @@ class HomeViewController: UIViewController {
             self.loadPosts()
         })
         
-        alertController.addAction(UIAlertAction(title: "Change Sort Direction", style: .default) { _ in
-            self.viewModel.currentSortDirection = self.viewModel.currentSortDirection == .ascending ? .descending : .ascending
-            self.loadPosts()
-        })
+//        alertController.addAction(UIAlertAction(title: "Change Sort Direction", style: .default) { _ in
+//            self.viewModel.currentSortDirection = self.viewModel.currentSortDirection == .ascending ? .descending : .ascending
+//            self.loadPosts()
+//        })
         
         alertController.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: nil))
         
@@ -103,12 +103,10 @@ class HomeViewController: UIViewController {
     
     // MARK: - Setup layout
     private func setupConstraints() {
-        view.addSubviews(view: [tableView])
+        view.addSubview(tableView)
         
         tableView.snp.makeConstraints { make in
-            make.top.equalToSuperview()
-            make.leading.trailing.equalToSuperview()
-            make.bottom.equalToSuperview()
+            make.edges.equalToSuperview()
         }
     }
 }
@@ -121,10 +119,40 @@ extension HomeViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: HomeTableViewCell.self), for: indexPath) as? HomeTableViewCell else { return UITableViewCell() }
-        cell.configureCell(viewModel.postsArr[indexPath.row])
+        cell.configure(with: viewModel.postsArr[indexPath.row]!)
+        
+        cell.buttonTapСlosure = { [weak self] in
+          guard let self = self else { return }
+          if self.expandedIndex.contains(indexPath.row) {
+            self.expandedIndex.remove(indexPath.row)
+          } else {
+            self.expandedIndex.insert(indexPath.row)
+          }
+          tableView.reloadRows(at: [indexPath], with: .automatic)
+        }
+        
+        //  Cell configuration (Expand/Collapse)
+        if expandedIndex.contains(indexPath.row) {
+          cell.previewLabel.numberOfLines = 0
+            cell.configureButton(with: "Collapse")
+        } else {
+          cell.previewLabel.numberOfLines = 2
+            cell.configureButton(with: "Expand")
+        }
+        
         return cell
     }
 }
 // MARK: - UITableView Delegate
-extension HomeViewController: UITableViewDelegate { }
+extension HomeViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let post = viewModel.postsArr[indexPath.row] {
+            viewModel.openDetailViewController(post)
+        }
+    }
+}
 

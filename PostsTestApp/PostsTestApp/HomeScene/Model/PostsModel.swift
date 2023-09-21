@@ -11,3 +11,11 @@ import Foundation
 struct Posts: Codable {
     let posts: [PostInfo]?
 }
+
+// MARK: - Post info
+struct PostInfo: Codable {
+    let postId, timeshamp: Int?
+    let title, previewText: String?
+    let postImage: String?
+    let likesCount: Int?
+}

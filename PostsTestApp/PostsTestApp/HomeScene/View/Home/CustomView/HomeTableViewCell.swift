@@ -6,110 +6,163 @@
 //
 
 import UIKit
-import SnapKit
 
 class HomeTableViewCell: UITableViewCell {
+    // MARK: - Properties
+    var buttonTapСlosure: (()->())?
+    
     // MARK: - Views
-    private lazy var postTitle: UILabel = {
+    private lazy var postView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    private lazy var newsTitleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: FontNames.sfBold.rawValue, size: 20)
-        label.textColor = .black
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 0
+        label.font = .systemFont(ofSize: 18, weight: .semibold)
+        label.textAlignment = .left
         return label
     }()
     
-    private lazy var postText: UILabel = {
+     lazy var previewLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: FontNames.sfRegular.rawValue, size: 18)
-        label.textColor = .gray
-        label.numberOfLines = 5
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = .systemFont(ofSize: 16, weight: .regular)
+        label.textAlignment = .left
         return label
     }()
     
-    private lazy var likeImage: UIImageView = {
-        let image = UIImageView(image: UIImage(named: ImageNames.like.rawValue))
-        return image
+    private lazy var likesImageView: UIImageView = {
+        let imageView = UIImageView(image: UIImage(systemName: "heart.fill"))
+        imageView.tintColor = .red
+        imageView.contentMode = .scaleAspectFit
+        imageView.frame = .init(x: 0, y: 0, width: 20, height: 20)
+        return imageView
     }()
     
-    private lazy var likesCounter: UILabel = {
+    private lazy var likesCountLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: FontNames.sfLight.rawValue, size: 16)
-        label.textColor = .gray
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = .systemFont(ofSize: 16, weight: .light)
+        label.textAlignment = .left
         return label
     }()
     
-    private lazy var postDate: UILabel = {
+    private lazy var likesStackView: UIStackView = {
+        let stack = UIStackView(arrangedSubviews: [likesImageView, likesCountLabel])
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.spacing = 4
+        stack.axis = .horizontal
+        stack.alignment = .fill
+        stack.distribution = .fillProportionally
+        return stack
+    }()
+    
+    private lazy var dateLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: FontNames.sfLight.rawValue, size: 16)
-        label.textColor = .gray
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = .systemFont(ofSize: 16, weight: .light)
+        label.textAlignment = .right
         return label
     }()
     
-    private lazy var postButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Press me", for: .normal)
+    private lazy var expandButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Expand", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 20, weight: .light)
         button.backgroundColor = .systemIndigo
+        button.layer.cornerRadius = 8
         return button
     }()
+    
+    // MARK: - Lifecycle
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        setupUI()
+        setupConstraints()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError()
+    }
     
     override func layoutSubviews() {
         super.layoutSubviews()
         setupUI()
-        setupLayout()
+        setupConstraints()
     }
     
     // MARK: - Setup UI
-    private func setupUI() {
-        // spacing between cells
-        self.contentView.frame = self.contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 0, bottom: 18, right: 0))
-        self.postButton.layer.cornerRadius = 10
+    func setupUI() {
+        expandButton.addTarget(self, action: #selector(buttonDidTap(_:)), for: .touchUpInside)
     }
     
-    // MARK: - Configure cell
-    func configureCell(_ post: PostInfo) {
-        postTitle.text = post.title
-        postText.text = post.previewText
-        likeImage.image = UIImage(named: ImageNames.like.rawValue)
-        likesCounter.text = "\(post.likesCount ?? 0)"
-        postDate.text = "\(post.timeshamp?.convertTimestampToDate(timestamp: Double(post.timeshamp ?? 0)) ?? "")"
+    // MARK: - Selectors
+    @objc func buttonDidTap(_ sender: UIButton!) {
+        buttonTapСlosure?()
     }
     
-    // MARK: - Setup Layout
-    private func setupLayout() {
-        contentView.addSubviews(view: [postTitle, postText, likeImage, likesCounter, postDate, postButton])
+    //MARK: - Setup Layout
+    func setupConstraints() {
+        addSubview(postView)
+        postView.addSubview(newsTitleLabel)
+        postView.addSubview(previewLabel)
+        postView.addSubview(likesStackView)
+        postView.addSubview(dateLabel)
+        postView.addSubview(expandButton)
         
-        postTitle.snp.makeConstraints { make in
-            make.top.equalTo(8)
-            make.left.equalTo(16)
-            make.right.equalTo(contentView).inset(16)
-        }
+        postView.topAnchor.constraint(equalTo: topAnchor, constant: 0).isActive = true
+        postView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8).isActive = true
+        postView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8).isActive = true
+        postView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -12).isActive = true
+
+        newsTitleLabel.topAnchor.constraint(equalTo: postView.topAnchor, constant: 8).isActive = true
+        newsTitleLabel.leadingAnchor.constraint(equalTo: postView.leadingAnchor, constant: 15).isActive = true
+        newsTitleLabel.trailingAnchor.constraint(equalTo: postView.trailingAnchor, constant: -10).isActive = true
+        newsTitleLabel.heightAnchor.constraint(equalToConstant: 70).isActive = true
         
-        postText.snp.makeConstraints { make in
-            make.top.equalTo(postTitle.snp.bottom).offset(8)
-            make.left.equalTo(16)
-            make.right.equalTo(contentView).inset(16)
-        }
-
-        likeImage.snp.makeConstraints { make in
-            make.width.height.equalTo(25)
-            make.top.equalTo(postText.snp.bottom).offset(8)
-            make.left.equalTo(16)
-        }
-
-        likesCounter.snp.makeConstraints { make in
-            make.centerY.equalTo(likeImage)
-            make.left.equalTo(likeImage.snp.right).offset(8)
-            make.width.equalTo(100)
-        }
-
-        postDate.snp.makeConstraints { make in
-            make.centerY.equalTo(likeImage)
-            make.right.equalTo(contentView).inset(16)
-        }
-
-        postButton.snp.makeConstraints { make in
-            make.top.equalTo(postDate.snp.bottom).offset(16)
-            make.leading.trailing.equalTo(contentView).inset(16)
-            make.height.equalTo(50)
-        }
+        previewLabel.topAnchor.constraint(equalTo: newsTitleLabel.bottomAnchor).isActive = true
+        previewLabel.leadingAnchor.constraint(equalTo: postView.leadingAnchor, constant: 15).isActive = true
+        previewLabel.trailingAnchor.constraint(equalTo: postView.trailingAnchor, constant: -20).isActive = true
+        
+        likesStackView.topAnchor.constraint(equalTo: previewLabel.bottomAnchor, constant: 10).isActive = true
+        likesStackView.leadingAnchor.constraint(equalTo: postView.leadingAnchor, constant: 10).isActive = true
+        likesStackView.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        
+        dateLabel.topAnchor.constraint(equalTo: previewLabel.bottomAnchor, constant: 10).isActive = true
+        dateLabel.trailingAnchor.constraint(equalTo: postView.trailingAnchor, constant: -10).isActive = true
+        dateLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        
+        expandButton.topAnchor.constraint(equalTo: likesStackView.bottomAnchor, constant: 10).isActive = true
+        expandButton.leadingAnchor.constraint(equalTo: postView.leadingAnchor, constant: 0).isActive = true
+        expandButton.trailingAnchor.constraint(equalTo: postView.trailingAnchor, constant: 0).isActive = true
+        expandButton.bottomAnchor.constraint(equalTo: postView.bottomAnchor, constant: 0).isActive = true
+        expandButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+    }
+    
+    // MARK: - Configure
+    func configureButton(with buttonTitle: String) {
+        expandButton.setTitle(buttonTitle, for: .normal)
+    }
+    
+    func configure(with post: PostInfo) {
+        newsTitleLabel.text = post.title
+        previewLabel.text = post.previewText
+        likesCountLabel.text = "\(post.likesCount ?? 0)"
+        dateLabel.text = "\(post.timeshamp ?? 0)"
+        
+//        let postDate = Date(timeIntervalSince1970: post.timestamp)
+//        let interval = Date() - postDate
+        
+//        if Int(interval.day!) <= 0 {
+//            timestampLabel.text = "today"
+//        } else {
+//            timestampLabel.text = "\(interval.day!) days ago"
+//        }
     }
 }

@@ -31,5 +31,11 @@ final class HomeCoordinator: Coordinator {
 }
 
 extension HomeCoordinator: HomeCoordinatorDelegate {
-
+    func openDetailViewController(_ post: PostInfo) {
+        let viewModel = DetailViewModel()
+        viewModel.post = post
+        let viewController = DetailViewController(viewModel: viewModel)
+        viewController.navigationItem.title = "Detail"
+        self.navigationController.pushViewController(viewController, animated: true)
+    }
 }

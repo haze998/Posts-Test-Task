@@ -21,13 +21,16 @@
 		06A46C3F2A9F5C8000DB7B9F /* SFProText-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 06A46C3E2A9F5C8000DB7B9F /* SFProText-Regular.ttf */; };
 		06A46C412A9F5C8F00DB7B9F /* SFProText-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 06A46C402A9F5C8F00DB7B9F /* SFProText-Light.ttf */; };
 		06A46C432A9F5D4D00DB7B9F /* PostsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A46C422A9F5D4D00DB7B9F /* PostsModel.swift */; };
-		06A46C452A9F5D7A00DB7B9F /* PostInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A46C442A9F5D7A00DB7B9F /* PostInfoModel.swift */; };
 		06A46C492A9F5E1600DB7B9F /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A46C482A9F5E1600DB7B9F /* NetworkManager.swift */; };
 		06A46C4B2A9F5E7C00DB7B9F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A46C4A2A9F5E7C00DB7B9F /* Constants.swift */; };
 		06A46C4E2A9F694400DB7B9F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 06A46C4D2A9F694400DB7B9F /* SnapKit */; };
 		06A46C532A9F702600DB7B9F /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A46C522A9F702600DB7B9F /* HomeTableViewCell.swift */; };
 		06A46C562A9F719200DB7B9F /* Extension + UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A46C552A9F719200DB7B9F /* Extension + UIView.swift */; };
 		06A46C582A9F82BC00DB7B9F /* Extension + Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A46C572A9F82BC00DB7B9F /* Extension + Int.swift */; };
+		06BECBBF2ABCA355000EA7AC /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BECBBE2ABCA355000EA7AC /* DetailViewController.swift */; };
+		06BECBC12ABCA711000EA7AC /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BECBC02ABCA711000EA7AC /* DetailViewModel.swift */; };
+		06BECBC32ABCA853000EA7AC /* PostDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BECBC22ABCA853000EA7AC /* PostDetail.swift */; };
+		06BECBC62ABCAD9D000EA7AC /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 06BECBC52ABCAD9D000EA7AC /* SDWebImage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,12 +50,14 @@
 		06A46C3E2A9F5C8000DB7B9F /* SFProText-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-Regular.ttf"; sourceTree = "<group>"; };
 		06A46C402A9F5C8F00DB7B9F /* SFProText-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-Light.ttf"; sourceTree = "<group>"; };
 		06A46C422A9F5D4D00DB7B9F /* PostsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsModel.swift; sourceTree = "<group>"; };
-		06A46C442A9F5D7A00DB7B9F /* PostInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostInfoModel.swift; sourceTree = "<group>"; };
 		06A46C482A9F5E1600DB7B9F /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		06A46C4A2A9F5E7C00DB7B9F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		06A46C522A9F702600DB7B9F /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		06A46C552A9F719200DB7B9F /* Extension + UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIView.swift"; sourceTree = "<group>"; };
 		06A46C572A9F82BC00DB7B9F /* Extension + Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Int.swift"; sourceTree = "<group>"; };
+		06BECBBE2ABCA355000EA7AC /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		06BECBC02ABCA711000EA7AC /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		06BECBC22ABCA853000EA7AC /* PostDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetail.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06BECBC62ABCAD9D000EA7AC /* SDWebImage in Frameworks */,
 				06A46C4E2A9F694400DB7B9F /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -139,7 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				06A46C422A9F5D4D00DB7B9F /* PostsModel.swift */,
-				06A46C442A9F5D7A00DB7B9F /* PostInfoModel.swift */,
+				06BECBC22ABCA853000EA7AC /* PostDetail.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -148,7 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				06A46C382A9F5B1000DB7B9F /* Home */,
-				06A46C392A9F5B2000DB7B9F /* Detail */,
+				06BECBBD2ABC9067000EA7AC /* Detail */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -157,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				06A46C302A9F56CC00DB7B9F /* HomeViewModel.swift */,
+				06BECBC02ABCA711000EA7AC /* DetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -179,13 +186,6 @@
 				06A46C4F2A9F6FF000DB7B9F /* CustomView */,
 			);
 			path = Home;
-			sourceTree = "<group>";
-		};
-		06A46C392A9F5B2000DB7B9F /* Detail */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Detail;
 			sourceTree = "<group>";
 		};
 		06A46C3A2A9F5B3300DB7B9F /* HomeCoordinator */ = {
@@ -239,6 +239,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		06BECBBD2ABC9067000EA7AC /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				06BECBBE2ABCA355000EA7AC /* DetailViewController.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -257,6 +265,7 @@
 			name = PostsTestApp;
 			packageProductDependencies = (
 				06A46C4D2A9F694400DB7B9F /* SnapKit */,
+				06BECBC52ABCAD9D000EA7AC /* SDWebImage */,
 			);
 			productName = PostsTestApp;
 			productReference = 06A46C0F2A9F521A00DB7B9F /* PostsTestApp.app */;
@@ -288,6 +297,7 @@
 			mainGroup = 06A46C062A9F521A00DB7B9F;
 			packageReferences = (
 				06A46C4C2A9F694400DB7B9F /* XCRemoteSwiftPackageReference "SnapKit" */,
+				06BECBC42ABCAD9D000EA7AC /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = 06A46C102A9F521A00DB7B9F /* Products */;
 			projectDirPath = "";
@@ -318,14 +328,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06BECBC12ABCA711000EA7AC /* DetailViewModel.swift in Sources */,
 				06A46C2D2A9F560100DB7B9F /* AppCoordinator.swift in Sources */,
-				06A46C452A9F5D7A00DB7B9F /* PostInfoModel.swift in Sources */,
 				06A46C532A9F702600DB7B9F /* HomeTableViewCell.swift in Sources */,
 				06A46C282A9F557A00DB7B9F /* Coordinator.swift in Sources */,
 				06A46C432A9F5D4D00DB7B9F /* PostsModel.swift in Sources */,
 				06A46C582A9F82BC00DB7B9F /* Extension + Int.swift in Sources */,
 				06A46C492A9F5E1600DB7B9F /* NetworkManager.swift in Sources */,
+				06BECBBF2ABCA355000EA7AC /* DetailViewController.swift in Sources */,
 				06A46C562A9F719200DB7B9F /* Extension + UIView.swift in Sources */,
+				06BECBC32ABCA853000EA7AC /* PostDetail.swift in Sources */,
 				06A46C172A9F521B00DB7B9F /* HomeViewController.swift in Sources */,
 				06A46C312A9F56CC00DB7B9F /* HomeViewModel.swift in Sources */,
 				06A46C132A9F521A00DB7B9F /* AppDelegate.swift in Sources */,
@@ -550,6 +562,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		06BECBC42ABCAD9D000EA7AC /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -557,6 +577,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 06A46C4C2A9F694400DB7B9F /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		06BECBC52ABCAD9D000EA7AC /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 06BECBC42ABCAD9D000EA7AC /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
